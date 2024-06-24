@@ -859,10 +859,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _registrators:
   - {fileID: 4582878142145599359}
-  - {fileID: 9071136730146021652}
   - {fileID: 9071136730146021653}
   - {fileID: 5139067357463498109}
-  - {fileID: 678638780}
   - {fileID: 1893530743}
   - {fileID: 1965107673}
   - {fileID: 1906066429}
@@ -1591,7 +1589,6 @@ GameObject:
   - component: {fileID: 6936152185477544078}
   - component: {fileID: 5094727537177703451}
   - component: {fileID: 4582878142145599359}
-  - component: {fileID: 9071136730146021652}
   - component: {fileID: 9071136730146021653}
   m_Layer: 0
   m_Name: Registration
@@ -1600,31 +1597,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &9071136730146021652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9071136730146021651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88c50b0f943b4b640a25801327a43bb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _assets:
-  - m_AssetGUID: a058337f80a341444995e01b5dd818ae
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: 92af749b183b91146b15fc7f29972a9a
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: f93739adc57e99c4c9cab55328029aa0
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
 --- !u!114 &9071136730146021653
 MonoBehaviour:
   m_ObjectHideFlags: 0

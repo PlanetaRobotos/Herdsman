@@ -5,7 +5,6 @@ using _Project.Infrastructure.Tasks;
 using _Project.Mechanics.Entities;
 using _Project.Mechanics.Entities.Tasks;
 using _Project.Mechanics.PathFinding.Tasks;
-using _Project.Services.AvatarService.Core;
 using _Project.Windows.HUD;
 using _Project.Windows.Loading;
 using Constellation.SceneManagement;
@@ -23,7 +22,6 @@ namespace _Project.Infrastructure.States
         [Inject] private readonly TasksLoader _tasksLoader;
         [Inject] private readonly WindowsController _windowsController;
         [Inject] private readonly ConfigsController _configsController;
-        [Inject] private readonly IAvatarService _avatarService;
         [Inject] private readonly FollowBehaviour _followBehaviour;
 
         private CancellationTokenSource _cts;
@@ -45,8 +43,6 @@ namespace _Project.Infrastructure.States
         {
             ITask[] tasks =
             {
-                new LoadConfigsTask(_configsController),
-                new MakeActionTask<IAvatarService>(_avatarService, x => x.LoadSpriteProviders()),
                 new OpenWindowTask<LoadingWindow>(_windowsController, WindowsConstants.LOADING_WINDOW, true),
                 new OpenWindowTask<HUDWindow>(_windowsController, WindowsConstants.HUD_WINDOW, true),
                 new MakeActionTaskAsync(
