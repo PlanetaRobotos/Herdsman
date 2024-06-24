@@ -21,7 +21,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 320
   <CheckSpawnRadius>k__BackingField: 0.5
-  <MaxAnimalsAmount>k__BackingField: 1
+  <MaxAnimalsAmount>k__BackingField: 50
   <MaxFollowAmount>k__BackingField: 5
   <SpawnDelayInterval>k__BackingField:
     min: 1
