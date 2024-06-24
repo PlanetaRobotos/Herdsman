@@ -49,5 +49,5 @@ Used to manage events and interactions between different game components, ensuri
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/PlanetaRobotos/herdsman.git
+   git clone https://github.com/PlanetaRobotos/Herdsman.git
    cd herdsman
