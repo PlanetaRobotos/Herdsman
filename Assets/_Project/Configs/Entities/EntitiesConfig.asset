@@ -26,9 +26,12 @@ MonoBehaviour:
   <SpawnDelayInterval>k__BackingField:
     min: 1
     max: 2
-  <CircleFormation>k__BackingField:
-    <SpacingAngle>k__BackingField: 150
-    <Radius>k__BackingField: 1.5
-  <LineFormation>k__BackingField:
-    <Spacing>k__BackingField: 2.2
-  <FollowType>k__BackingField: 0
+  _followScript:
+    rid: 3348276337253548044
+  references:
+    version: 2
+    RefIds:
+    - rid: 3348276337253548044
+      type: {class: LineFormation, ns: _Project.Mechanics.Entities.Formations, asm: Assembly-CSharp}
+      data:
+        <Spacing>k__BackingField: 2.2

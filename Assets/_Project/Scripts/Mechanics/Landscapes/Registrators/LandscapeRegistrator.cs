@@ -16,7 +16,8 @@ namespace _Project.Mechanics.Landscapes.Registrators
             Locator.Register(_landscapesConfig);
             Locator.Register(_yardsConfig);
             
-            Locator.Register(new GameFieldFactory(_landscapesConfig));
+            Locator.Register<ISimpleFactory<GameObject, LandscapeConfig>>(new GameFieldFactory());
+            Locator.Register<ISimpleFactory<Yard, YardConfig>>(new YardsFactory());
             Locator.Register(new YardFactory(_yardsConfig));
             Locator.Register(new LandscapeProvider());
             Locator.Register(new YardsProvider());

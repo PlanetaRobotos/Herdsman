@@ -17,7 +17,7 @@ namespace _Project.Mechanics.Entities.Spawners
     public interface IEntitiesSpawner
     {
         UniTask SpawnInInterval(List<BaseEntity> entities, Collider2D spawnArea,
-            MinMaxValue spawnDelayInterval, int maxAmount, CancellationToken cancellationToken = default);
+            MinMaxValue spawnDelayInterval, int maxAmount, Transform parent, CancellationToken cancellationToken = default);
 
         void StopSpawnAnimals();
     }
@@ -42,7 +42,7 @@ namespace _Project.Mechanics.Entities.Spawners
         }
 
         public async UniTask SpawnInInterval(List<BaseEntity> entities, Collider2D spawnArea,
-            MinMaxValue spawnDelayInterval, int maxAmount, CancellationToken cancellationToken = default)
+            MinMaxValue spawnDelayInterval, int maxAmount, Transform parent, CancellationToken cancellationToken = default)
         {
             while (!cancellationToken.IsCancellationRequested || !_cts.Token.IsCancellationRequested)
             {
@@ -52,6 +52,7 @@ namespace _Project.Mechanics.Entities.Spawners
                 var entity = entities[Random.Range(0, entities.Count)];
                 
                 var instance = (AIBase)_entityFactory.Instantiate(entity, $"Animal_{_nameCounter}", spawnArea.TryGetRandomPosition(_entitiesConfig.CheckSpawnRadius, _entitiesConfig.SpawnLayerMask));
+                instance.transform.SetParent(parent);
                 instance.Initialize(FollowBehaviour, EntitiesProvider, spawnArea, _entitiesConfig);
                 instance.InitializeStateMachine();
                 instance.StateMachine.ChangeState(typeof(IdleAIState));

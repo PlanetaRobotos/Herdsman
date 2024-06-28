@@ -5,7 +5,6 @@ using _Project.Mechanics.Entities.Abstract;
 using _Project.Mechanics.Entities.AI.AIEntities;
 using _Project.Mechanics.Entities.Configs;
 using _Project.Mechanics.Entities.Formations;
-using _Project.Mechanics.Entities.Models;
 using _Project.Mechanics.Entities.Registrators;
 using CollectionsPooling;
 using UnityEngine;
@@ -19,19 +18,12 @@ namespace _Project.Mechanics.Entities
         [Inject] private ICollectionsPoolService CollectionsPoolService { get; }
 
         private List<AIBase> _entities;
-        private Formation _grid;
+        private IFormation _grid;
 
         public void Initialize()
         {
-            _grid = EntitiesConfig.FollowType switch
-            {
-                FollowType.Line => new LineFormation(EntitiesConfig.LineFormation, EntitiesConfig.MaxFollowAmount),
-                FollowType.Circle => new CircleFormation(EntitiesConfig.CircleFormation,
-                    EntitiesConfig.MaxFollowAmount),
-                _ => _grid
-            };
-            
             _entities = CollectionsPoolService.GetList<AIBase>();
+            _grid = EntitiesConfig.FollowScript;
         }
 
         public void AddToGroup(AIBase entity)

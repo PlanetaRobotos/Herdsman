@@ -1,5 +1,6 @@
+using _Project.Mechanics.Entities.Formations;
 using _Project.Mechanics.Entities.Models;
-using _Project.Mechanics.Entities.Models.Formations;
+using ManagedReference;
 using MVVM.Adapters.Float;
 using UnityEngine;
 
@@ -15,8 +16,10 @@ namespace _Project.Mechanics.Entities.Configs
         [field: SerializeField] public int MaxAnimalsAmount { get; private set; }
         [field: SerializeField] public int MaxFollowAmount { get; private set; }
         [field: SerializeField] public MinMaxValue SpawnDelayInterval { get; private set; }
-        [field: SerializeField, Header("Formations")] public CircleFormationConfig CircleFormation { get; private set; }
-        [field: SerializeField] public LineFormationConfig LineFormation { get; private set; }
-        [field: SerializeField, Space] public FollowType FollowType { get; private set; }
+
+        [SerializeReference, ManagedReference, Space]
+        private IFormation _followScript;
+
+        public IFormation FollowScript => _followScript;
     }
 }

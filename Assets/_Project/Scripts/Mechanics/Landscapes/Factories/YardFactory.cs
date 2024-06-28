@@ -22,10 +22,11 @@ namespace _Project.Mechanics.Landscapes.Factories
             return go.GetComponent<Yard>();
         }
 
-        public IYard Instantiate(Yard template, YardConfig yardConfig)
+        public IYard Instantiate(Yard template, YardConfig yardConfig, Transform parent)
         {
             var instance = Object.Instantiate(template, yardConfig.SpawnPosition, Quaternion.identity);
             instance.transform.localScale = yardConfig.Scale;
+            instance.transform.SetParent(parent);
             instance.Initialize();
             return instance;
         }

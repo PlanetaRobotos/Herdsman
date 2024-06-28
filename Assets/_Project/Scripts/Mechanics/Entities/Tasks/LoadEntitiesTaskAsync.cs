@@ -32,7 +32,7 @@ namespace _Project.Mechanics.Entities.Tasks
             var animalTemplate = await _entityFactory.Load<SimpleAI>();
             EntitiesSpawner.SpawnInInterval(new List<BaseEntity> { animalTemplate },
                 LandscapeProvider.CurrentLandscape.GetComponent<Collider2D>(), _entitiesConfig.SpawnDelayInterval,
-                _entitiesConfig.MaxAnimalsAmount).Forget();
+                _entitiesConfig.MaxAnimalsAmount, new GameObject("Animals").transform).Forget();
         }
     }
 }
